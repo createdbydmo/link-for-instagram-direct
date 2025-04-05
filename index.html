@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Link Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .link-inputs {
+            margin-bottom: 20px;
+        }
+        .link-inputs input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .link-list {
+            list-style: none;
+            padding: 0;
+        }
+        .link-list li {
+            margin-bottom: 10px;
+        }
+        .link-list a {
+            display: block;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .link-list a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>My Link Hub</h2>
+        <div class="link-inputs">
+            <input type="text" id="link1" placeholder="Enter a link (e.g., YouTube)">
+            <input type="text" id="link2" placeholder="Enter a link">
+            <input type="text" id="link3" placeholder="Enter a link">
+        </div>
+        <button onclick="generateLinks()">Generate Links</button>
+        <h3>Your Landing Page Links</h3>
+        <ul class="link-list" id="link-list">
+            <!-- Generated links will appear here -->
+        </ul>
+    </div>
+
+    <script>
+        function generateLinks() {
+            const link1 = document.getElementById('link1').value;
+            const link2 = document.getElementById('link2').value;
+            const link3 = document.getElementById('link3').value;
+
+            const linkList = document.getElementById('link-list');
+            linkList.innerHTML = '';  // Clear previous links
+
+            // Add new links if they are provided
+            if (link1) {
+                let li = document.createElement('li');
+                li.innerHTML = `<a href="${link1}" target="_blank">${link1}</a>`;
+                linkList.appendChild(li);
+            }
+            if (link2) {
+                let li = document.createElement('li');
+                li.innerHTML = `<a href="${link2}" target="_blank">${link2}</a>`;
+                linkList.appendChild(li);
+            }
+            if (link3) {
+                let li = document.createElement('li');
+                li.innerHTML = `<a href="${link3}" target="_blank">${link3}</a>`;
+                linkList.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>
